@@ -53,7 +53,7 @@ class Item(object):
         attrs['href'] = self.url
         attrs_template, attrs_values = join_html_attrs(attrs)
 
-        return Markup('<a %s>{label}</a>' % attrs_template).format(
+        return str(Markup('<a %s>{label}</a>' % attrs_template)).format(
             *attrs_values, label=self.label)
 
     def __html_format__(self, format_spec):
